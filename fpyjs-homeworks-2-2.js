@@ -19,17 +19,17 @@ function addproduct (idAdd, quantityadd) {
             basket.push(add);
             break;
         }   
-    return console.log(basket);
+    return basket;
     }
 }
 
 function deleteproduct (idDelete) {  
     for (let i=0; i<basket.length; i++) {
         if (basket[i].goodId == idDelete) {
-            basket.splice(basket[i], 1);
+            basket.splice(basket[i].goodId, 1); 
             break;
         }   
-    return console.log(basket);
+    return basket;
     }
 }
 
@@ -46,23 +46,23 @@ function totals() {
         totalQuantity += basket[i].amount;    
         }   
     const total = {totalAmount: totalQuantity, totalSumm: totalValue,};
-    return console.log(total);
+    return total;
     }
 
 function deletebasket() {
     basket=[];
-    return console.log(basket);
+    return basket;
 }
 
 console.log("product to add in basket: " + process.argv[2]);
 console.log("Amount of product to add in basket: " + process.argv[3]);
-addproduct(process.argv[2], process.argv[3]);
+console.log(addproduct(process.argv[2], process.argv[3]));
 
 console.log("product to delete from basket: " + process.argv[4]);
-deleteproduct(process.argv[4]);
+console.log(deleteproduct(process.argv[4]));
 
 console.log('Basket total amount of products');
-totals();
+console.log(totals());
 
 console.log('Empty basket');
-deletebasket();
+console.log(deletebasket());

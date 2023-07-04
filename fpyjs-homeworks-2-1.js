@@ -1,17 +1,19 @@
-let nodePath = process.argv[0];
-let appPath = process.argv[1];
-let n = process.argv[2];
 
-console.log("nodePath: " + nodePath);
-console.log("appPath: " + appPath);
-console.log();
-console.log("количество первых чисел: " + n);
-
-let arr = [];
-let i = 0;
-while (arr.length < n) {
-    if (i % 2 === 0) { console.log('И все таки оно делится!' + i)} 
-    else {arr.push(i); console.log('Простое число ' + i)};
-    i++;
+function prime(j) {
+    for (let i = 2; i < j; i++) {
+      if (j % i === 0) return false;
+    }
+    return j !== 1;
+  }
+  
+function array(n) {
+    arr = []
+    i = 2
+    while (arr.length < n) {
+      if (prime(i)) {arr.push(i)}
+      i++;
+    }
+    return arr;
 }
-console.log(arr);
+  
+  array(console.log(array(process.argv[2])));
